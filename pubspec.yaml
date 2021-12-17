@@ -1,0 +1,17 @@
+name: simple_lane_chart
+description: A new Flutter package help to create simple lane chart
+version: 0.0.1
+author: Frunza Vadim
+homepage: https://github.com/GermanQQ/simple_lane_chart.git
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

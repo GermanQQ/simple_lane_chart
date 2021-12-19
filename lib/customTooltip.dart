@@ -25,7 +25,8 @@ class CustomTooltip extends StatelessWidget {
       message: visible ? message : "",
       verticalOffset: verticalOffset,
       preferBelow: preferBelow,
-      textStyle: textStyle ?? TextStyle(color: Colors.white, fontFamily: 'Helvetica'),
+      textStyle:
+          textStyle ?? TextStyle(color: Colors.white, fontFamily: 'Helvetica'),
       decoration: visible ? null : BoxDecoration(color: Colors.transparent),
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,

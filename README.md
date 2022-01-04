@@ -3,7 +3,7 @@
 Comparing 2 charts between themselves.
 
 ![Compare Chart](assets/compareChart.png) 
-```
+```dart
 Container(
      padding: EdgeInsets.symmetric(horizontal: 15),
      child: SimpleLaneChart(
@@ -19,7 +19,7 @@ Comparing from 100%.
 **Important** you should use parameter **"calFrom100Perc = true"**, and second value should be **total value**.
 
 ![Chart](assets/chart.png) 
-```
+```dart
 Container(
      padding: EdgeInsets.symmetric(horizontal: 15),
      child: SimpleLaneChart(

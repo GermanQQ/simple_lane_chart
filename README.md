@@ -1,2 +1,2 @@
 # flutter_pkg
-![Compare Chart](/assets/compareChart.png)
+![Compare Chart](assets/compareChart.png)

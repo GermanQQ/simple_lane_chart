@@ -6,43 +6,60 @@ import 'package:simple_lane_chart/untils.dart';
 import 'customTooltip.dart';
 
 class SimpleLaneChart extends StatefulWidget {
-  ///First number which you want to compare. 
+  ///First number which you want to compare.
   ///Is required variable
   final num firstNum;
+
   ///Second number which you want to compare with first number.
   ///If you choose [calFrom100Perc] value "true", this shoud be total sum value of first and second num
   ///Is required variable
   final num secondNum;
-  ///Color 
+
+  ///Color
   final Color color;
-   ///Color second chart or background
+
+  ///Color second chart or background
   final Color bgColor;
+
   ///Height of chart
   final double height;
+
   ///For progres chart, if you chose [calFrom100Perc] value "true", [secondNum] shoud be total sum
   final bool calFrom100Perc;
+
   ///Gradient first chart
   final Gradient? gradientForChart;
+
   ///Gradient second chart or background
   final Gradient? gradientForBgChart;
+
   ///Visuble tooltip
   final bool tooltip;
+
   ///Show percent compare between 2 value
   final bool tooltipPercent;
+
   ///Below tooltip
   final bool tooltipPreferBelow;
+
   ///Text style for tooltip
   final TextStyle? tooltipTextStyle;
+
   ///Visuble text count
   final bool showTextCount;
+
   ///Text style for text count
   final TextStyle? textStyle;
+
   ///Alignment text count
   final Alignment? aligmentText;
+
   ///Show text count in percent
   final bool textPercent;
+
   ///Animated duration
   final Duration? animatedDuration;
+
   ///Elevantion for chart
   final double elevantion;
 
@@ -68,8 +85,7 @@ class SimpleLaneChart extends StatefulWidget {
   _SimpleLaneChartState createState() => _SimpleLaneChartState();
 }
 
-class _SimpleLaneChartState extends State<SimpleLaneChart>
-    with SingleTickerProviderStateMixin {
+class _SimpleLaneChartState extends State<SimpleLaneChart> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
   @override
@@ -100,36 +116,34 @@ class _SimpleLaneChartState extends State<SimpleLaneChart>
 
     final width = MediaQuery.of(context).size.width;
     if (width < 500) {
-      sizeFirstChart =
-          (sizeFirstChart != 0 && sizeFirstChart < 5) ? 5 : sizeFirstChart;
+      sizeFirstChart = (sizeFirstChart != 0 && sizeFirstChart < 5) ? 5 : sizeFirstChart;
     } else {
-      sizeFirstChart =
-          (sizeFirstChart != 0 && sizeFirstChart < 2) ? 2 : sizeFirstChart;
+      sizeFirstChart = (sizeFirstChart != 0 && sizeFirstChart < 2) ? 2 : sizeFirstChart;
     }
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
-          height: widget.height,
-          child: AnimatedBuilder(
-              animation: _controller,
-              builder: (context, child) {
-                return Material(
-                  elevation: widget.elevantion,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                  ),
-                  child: Transform.scale(
-                    alignment: Alignment.centerLeft,
-                    scale: widget.calFrom100Perc ? 1 : _controller.value * 1,
-                    child: CustomTooltip(
-                      message: widget.tooltipPercent
-                          ? '${firstPercent.toStringAsFixed(1)}% / ${secondPercent.toStringAsFixed(1)}%'
-                          : '${widget.firstNum} / ${widget.secondNum}',
-                      visible: widget.tooltip,
-                      preferBelow: widget.tooltipPreferBelow,
-                      verticalOffset: (widget.height / 2) + 2,
+        CustomTooltip(
+          message: widget.tooltipPercent
+              ? '${firstPercent.toStringAsFixed(1)}% / ${secondPercent.toStringAsFixed(1)}%'
+              : '${widget.firstNum} / ${widget.secondNum}',
+          visible: widget.tooltip,
+          preferBelow: widget.tooltipPreferBelow,
+          verticalOffset: (widget.height / 2) + 2,
+          child: Container(
+            height: widget.height,
+            child: AnimatedBuilder(
+                animation: _controller,
+                builder: (context, child) {
+                  return Material(
+                    elevation: widget.elevantion,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    child: Transform.scale(
+                      alignment: Alignment.centerLeft,
+                      scale: widget.calFrom100Perc ? 1 : _controller.value * 1,
                       child: Container(
                         decoration: BoxDecoration(
                           color: widget.bgColor,
@@ -138,8 +152,7 @@ class _SimpleLaneChartState extends State<SimpleLaneChart>
                         ),
                         child: Transform.scale(
                           alignment: Alignment.centerLeft,
-                          scale:
-                              widget.calFrom100Perc ? _controller.value * 1 : 1,
+                          scale: widget.calFrom100Perc ? _controller.value * 1 : 1,
                           child: Row(
                             children: [
                               Flexible(
@@ -166,9 +179,9 @@ class _SimpleLaneChartState extends State<SimpleLaneChart>
                         ),
                       ),
                     ),
-                  ),
-                );
-              }),
+                  );
+                }),
+          ),
         ),
         if (widget.showTextCount)
           Align(

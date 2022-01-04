@@ -2,7 +2,7 @@
 ## Compare charts
 Comparing 2 charts between themselves.
 
-![Compare Chart](assets/compareChart.png) 
+![Compare Chart](https://raw.githubusercontent.com/GermanQQ/simple_lane_chart/main/assets/compareChart.png) 
 ```dart
 Container(
      padding: EdgeInsets.symmetric(horizontal: 15),
@@ -18,7 +18,7 @@ Comparing from 100%.
 
 **Important** you should use parameter **"calFrom100Perc = true"**, and second value should be **total value**.
 
-![Chart](assets/chart.png) 
+![Chart](https://raw.githubusercontent.com/GermanQQ/simple_lane_chart/main/assets/chart.png) 
 ```dart
 Container(
      padding: EdgeInsets.symmetric(horizontal: 15),

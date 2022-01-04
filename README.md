@@ -2,7 +2,7 @@
 ## Compare charts
 Comparing 2 charts between themselves.
 
-![Compare Chart](https://github.com/GermanQQ/simple_lane_chart/raw/main/assets/compareChart.png) 
+![Compare Chart](https://raw.githubusercontent.com/GermanQQ/simple_lane_chart/main/assets/compareChart.png) 
 ```dart
 Container(
      padding: EdgeInsets.symmetric(horizontal: 15),

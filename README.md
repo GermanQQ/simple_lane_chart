@@ -1,4 +1,7 @@
 # Simple lane chart
+## Compare charts
+Comparing 2 charts between themselves.
+
 ![Compare Chart](assets/compareChart.png) 
 ```
 Container(
@@ -10,8 +13,12 @@ Container(
    ),
  ),
 ```
+## Chart 100%
+Comparing from 100%.
 
-![Compare Chart](assets/chart.png) 
+**Important** you should use parameter **"calFrom100Perc = true"**, and second value should be **total value**.
+
+![Chart](assets/chart.png) 
 ```
 Container(
      padding: EdgeInsets.symmetric(horizontal: 15),

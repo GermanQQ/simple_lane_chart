@@ -18,7 +18,7 @@ Comparing from 100%.
 
 **Important** you should use parameter **"calFrom100Perc = true"**, and second value should be **total value**.
 
-![Chart](https://github.com/GermanQQ/simple_lane_chart/raw/main/assets/chart.png) 
+![Chart](https://raw.githubusercontent.com/GermanQQ/simple_lane_chart/main/assets/chart.png) 
 ```dart
 Container(
      padding: EdgeInsets.symmetric(horizontal: 15),

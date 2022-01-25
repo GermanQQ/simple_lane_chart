@@ -194,7 +194,7 @@ class _SimpleLaneChartState extends State<SimpleLaneChart> with SingleTickerProv
                     : '${widget.firstNum} / ${widget.secondNum}',
                 style: widget.textStyle ??
                     TextStyle(
-                      fontSize: getFontSizeByScreen(context, 16),
+                      fontSize: 16,
                       fontFamily: 'Helvetica',
                     ),
               ),

@@ -106,13 +106,14 @@ class _SimpleLaneChartState extends State<SimpleLaneChart> with SingleTickerProv
 
   @override
   Widget build(BuildContext context) {
-    num firstPercent = getCorectChartSize(widget.firstNum, widget.secondNum);
-    num secondPercent = getCorectChartSize(widget.secondNum, widget.firstNum);
+    num firstPercent = widget.calFrom100Perc
+        ? (widget.firstNum / widget.secondNum) * 100
+        : getCorectChartSize(widget.firstNum, widget.secondNum);
+    num secondPercent =
+        widget.calFrom100Perc ? 100 - firstPercent : getCorectChartSize(widget.secondNum, widget.firstNum);
 
     int sizeFirstChart = firstPercent.round();
     int sizeSecondChart = secondPercent.round();
-
-    secondPercent = widget.calFrom100Perc ? 100 : secondPercent;
 
     final width = MediaQuery.of(context).size.width;
     if (width < 500) {
@@ -126,7 +127,7 @@ class _SimpleLaneChartState extends State<SimpleLaneChart> with SingleTickerProv
       children: [
         CustomTooltip(
           message: widget.tooltipPercent
-              ? '${firstPercent.toStringAsFixed(1)}% / ${secondPercent.toStringAsFixed(1)}%'
+              ? '${firstPercent.toStringAsFixed(1)}% / ${widget.calFrom100Perc ? 100.0 : secondPercent.toStringAsFixed(1)}%'
               : '${widget.firstNum} / ${widget.secondNum}',
           visible: widget.tooltip,
           preferBelow: widget.tooltipPreferBelow,
@@ -190,7 +191,7 @@ class _SimpleLaneChartState extends State<SimpleLaneChart> with SingleTickerProv
               padding: const EdgeInsets.all(5.0),
               child: Text(
                 widget.textPercent
-                    ? '${firstPercent.toStringAsFixed(1)}% / ${secondPercent.toStringAsFixed(1)}%'
+                    ? '${firstPercent.toStringAsFixed(1)}% / ${widget.calFrom100Perc ? 100.0 : secondPercent.toStringAsFixed(1)}%'
                     : '${widget.firstNum} / ${widget.secondNum}',
                 style: widget.textStyle ??
                     TextStyle(

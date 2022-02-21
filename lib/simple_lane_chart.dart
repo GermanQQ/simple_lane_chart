@@ -106,11 +106,12 @@ class _SimpleLaneChartState extends State<SimpleLaneChart> with SingleTickerProv
 
   @override
   Widget build(BuildContext context) {
-    num firstPercent = widget.calFrom100Perc
+    num firstPercent = widget.calFrom100Perc && widget.firstNum != 0
         ? (widget.firstNum / widget.secondNum) * 100
         : getCorectChartSize(widget.firstNum, widget.secondNum);
-    num secondPercent =
-        widget.calFrom100Perc ? 100 - firstPercent : getCorectChartSize(widget.secondNum, widget.firstNum);
+    num secondPercent = widget.calFrom100Perc && widget.secondNum != 0
+        ? 100 - firstPercent
+        : getCorectChartSize(widget.secondNum, widget.firstNum);
 
     int sizeFirstChart = firstPercent.round();
     int sizeSecondChart = secondPercent.round();
